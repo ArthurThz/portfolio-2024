@@ -10,10 +10,10 @@ const ExperienceItem = () => {
       <div className="flex flex-col items-center gap-4">
         <div className="rounded-full border border-gray-500 p-0.5">
           <Image
-            src="/images/icons/project-title-icon.svg"
+            src="/images/verticore-logo.png"
             width={40}
             height={40}
-            className="rounded-ful"
+            className="rounded-full object-cover"
             alt="logo da empresa"
           />
         </div>

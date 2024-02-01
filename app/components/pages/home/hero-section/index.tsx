@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable prettier/prettier */
+"use client";
 import Button from "@/app/components/button";
 import TechBadges from "@/app/components/tech-badges";
 import Image from "next/image";
@@ -12,6 +13,12 @@ import {
 } from "react-icons/tb";
 
 const Hero = () => {
+  const handleContact = () => {
+    const contactSection = document.querySelector("#contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   const MOCK_CONTACT = [
     {
       url: "https://github.com/arthurthz",
@@ -49,7 +56,7 @@ const Hero = () => {
             ))}
           </div>
           <div className="mt-6 lg:mt-10 flex sm:items-center sm:gap-5 sm:flex-row flex-col">
-            <Button className="shadow-button w-max">
+            <Button onClick={handleContact} className="shadow-button w-max">
               Entre em contato
               <HiArrowNarrowRight />
             </Button>

@@ -8,6 +8,8 @@ import { HiArrowNarrowRight } from "react-icons/hi";
 import Button from "../button";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const ContactFormSchema = z.object({
   name: z.string().min(3).max(100),
@@ -16,12 +18,26 @@ const ContactFormSchema = z.object({
 });
 
 type ContactFormData = z.infer<typeof ContactFormSchema>;
+
 const ContactForm = () => {
-  const { handleSubmit, register } = useForm<ContactFormData>({
+  const {
+    handleSubmit,
+    register,
+    reset,
+    formState: { isSubmitting },
+  } = useForm<ContactFormData>({
     resolver: zodResolver(ContactFormSchema),
   });
-  const onSubmit = (data: ContactFormData) => {
-    console.log(data);
+
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      await axios.post("/api/contact", data);
+      reset();
+      toast.success("mensagem enviada com sucesso!");
+    } catch (err) {
+      alert(err);
+      toast.error("Houve um erro ao enviar a mensagem!");
+    }
   };
   return (
     <section
@@ -57,7 +73,10 @@ const ContactForm = () => {
             className="resize-none w-full h-[138px] bg-gray-800 rounded-lg placeholder:text-gray-400 text-gray-50 p-4 focus:outline-none focus:ring-2 ring-emerald-600"
             maxLength={500}
           />
-          <Button className="mt-6  w-max mx-auto shadow-button">
+          <Button
+            disabled={isSubmitting}
+            className="mt-6  w-max mx-auto shadow-button"
+          >
             Enviar Mensagem <HiArrowNarrowRight />
           </Button>
         </form>

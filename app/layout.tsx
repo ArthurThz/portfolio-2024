@@ -6,6 +6,8 @@ import Header from "./components/Header";
 import ContactForm from "./components/contact-form";
 import Footer from "./components/footer";
 import BackToTop from "./components/back-to-top";
+import { FaReact } from "react-icons/fa";
+import Toaster from "./components/toaster";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -18,10 +20,22 @@ const plexMono = IBM_Plex_Mono({
   weight: ["400", "500"],
 });
 
+export const metadata = {
+  title: {
+    default: "Home",
+    template: "%s | TH Dev",
+  },
+  icons: [
+    {
+      url: "/react-icon.svg",
+    },
+  ],
+};
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR" className={`${inter.variable} ${plexMono.variable}`}>
       <body>
+        <Toaster />
         <BackToTop />
         <Header />
         {children}

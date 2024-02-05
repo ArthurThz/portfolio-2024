@@ -34,3 +34,9 @@ export type HomePageData = {
     pages : HomePageInfo
     workExperiences:WorkExperience[]
 }
+
+export type ProjectsPageStaticData ={
+    projects:{
+        slug:string
+    }[]
+}

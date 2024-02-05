@@ -21,7 +21,7 @@ const NavItems = ({ href, label }: NavItemProps) => {
         isActive && "text-gray-50"
       )}
     >
-      <span className="text-zinc-800">#</span>
+      <span className="text-blue-500">#</span>
       {label}
     </Link>
   );

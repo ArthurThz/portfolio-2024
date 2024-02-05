@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { KnownTechs } from "./projects"
+import { KnownTechs, Project } from "./projects"
 import type {RichTextContent} from '@graphcms/rich-text-types'
 
 /* eslint-disable prettier/prettier */
@@ -19,6 +19,7 @@ export type HomePageInfo = [{
     },
     socials:Social[],
     knownTechs:KnownTechs[],
+    highlightProjects:Project[]
 }]
 
 export type HomePageData = {

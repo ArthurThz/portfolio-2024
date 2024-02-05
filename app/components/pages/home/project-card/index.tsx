@@ -4,46 +4,40 @@ import Image from "next/image";
 import React from "react";
 import Link from "@/app/components/link";
 import { HiArrowNarrowRight } from "react-icons/hi";
+import { Project } from "@/app/types/projects";
+import { FaReact } from "react-icons/fa";
 
-const ProjectCard = () => {
+type ProjectCardProps = {
+  project: Project;
+};
+const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
     <div className="flex gap-6 lg:gap-12 flex-col lg:flex-row">
       <div className="w-full h-full">
         <Image
-          src="/images/print-home.png"
+          src={project.thumbnail.url}
           width={420}
           height={304}
-          alt="Thumbnail projeto consulta ja"
+          alt={`Thumbnail projeto ${project.title}`}
           className=" w-full h-[200px] sm:h-[300px] lg:w-[420px] lg:min-h-full object-cover rounded-lg"
         />
       </div>
-      <div>
+      <div className="w-full">
         <h3 className="flex items-center gap-3 font-medium text-lg text-gray-50">
-          <Image
-            width={20}
-            height={20}
-            alt=""
-            src="/images/icons/project-title-icon.svg"
-          />
-          Consulta Já
+          <FaReact className="text-blue-500" />
+          {project.title}
         </h3>
-        <p className="text-gray-400 my-6">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
-          quia commodi hic fugit earum harum laborum, est quis, corporis
-          exercitationem nobis unde libero fugiat possimus delectus eos ipsa
-          dignissimos cum dolor? Dolor libero incidunt blanditiis, perferendis
-          natus dignissimos laboriosam commodi laborum. Vel, dicta beatae!
-          Maxime vitae perspiciatis deleniti esse sunt.
-        </p>
+        <p className="text-gray-400 my-6">{project.shortDescription}</p>
         <div className="flex gap-x-2 gap-y-3 flex-wrap mb-8 lg:max-w-[350px]">
-          <TechBadges name="Next.Js" />
-          <TechBadges name="Next.Js" />
-          <TechBadges name="Next.Js" />
-          <TechBadges name="Next.Js" />
-          <TechBadges name="Next.Js" />
+          {project.technologies.map((tech) => (
+            <TechBadges
+              key={`${project.title}-tech-${tech.name}`}
+              name={tech.name}
+            />
+          ))}
         </div>
 
-        <Link href="/projects/consultaja">
+        <Link href={`/projects/${project.slug}`}>
           Ver projeto
           <HiArrowNarrowRight />
         </Link>

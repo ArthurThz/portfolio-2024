@@ -14,7 +14,6 @@ export const fetchHygraphQuery = async (query : string, revalidate? : number) =>
     
     const {data} = await response.json()
 
-
    
     
     return data

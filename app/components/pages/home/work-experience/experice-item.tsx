@@ -1,10 +1,23 @@
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable prettier/prettier */
+import RichText from "@/app/components/rich-text";
 import TechBadges from "@/app/components/tech-badges";
+import { WorkExperience } from "@/app/types/work-experience";
 import Image from "next/image";
 import React from "react";
 
-const ExperienceItem = () => {
+type ExperienceItemProps = {
+  experience: WorkExperience;
+};
+const ExperienceItem = ({ experience }: ExperienceItemProps) => {
+  const {
+    companyLogo,
+    companyName,
+    companyUrl,
+    description,
+    role,
+    technologies,
+  } = experience;
   return (
     <div className="grid grid-cols-[40px,1fr] gap-4 md:gap-10">
       <div className="flex flex-col items-center gap-4">
@@ -14,7 +27,7 @@ const ExperienceItem = () => {
             width={40}
             height={40}
             className="rounded-full object-cover"
-            alt="logo da empresa"
+            alt={`logo da empresa ${companyName}`}
           />
         </div>
         <div className="h-full w-[1px] bg-gray-800"></div>
@@ -24,39 +37,26 @@ const ExperienceItem = () => {
           <a
             className="text-gray-500 hover:text-emerald-500 transition-colors"
             target="_blank"
-            href="https://www.linkedin.com/company/verticoregroup/"
+            href={companyUrl}
           >
-            @Verticore
+            @{companyName}
           </a>
-          <h4 className="text-gray-300">Estagiário de TI</h4>
+          <h4 className="text-gray-300">{role}</h4>
           <span className="text-gray-500">Jul 2023 - Nov 2023</span>
-          <p className="text-gray-400">
-            Desenvolvimento de automações utilizando python com a plataforma de
-            BotCity, gerenciamento das novas automações e das pre-existentes
-            (UiPath).
-          </p>
-          <p className="text-gray-400">
-            Levantamento de requisitos para novas automações.
-          </p>
-          <p className="text-gray-400">
-            Criação e manutenção de pipes no Pipefy.
-          </p>
-          <p className="text-gray-400">
-            Atendimento de chamados para execução das automações.
-          </p>
-          <p className="text-gray-400">
-            Desenvolvimento de relatórios no pipe de chamados para gerir a
-            quantidade e prioridade de execução dos bots.
-          </p>
+          <div className="text-gray-400">
+            <RichText content={description.raw} />
+          </div>
         </div>
         <p className="text-gray-400 text-sm mb-3 mt-6 font-semibold">
           Competências
         </p>
         <div className="flex gap-x-2 gap-y-3 flex-wrap lg:max-w-[350px] mb-8">
-          <TechBadges name="Python" />
-          <TechBadges name="BotCity" />
-          <TechBadges name="Pipefy" />
-          <TechBadges name="UiPath" />
+          {technologies.map((tech) => (
+            <TechBadges
+              name={tech.name}
+              key={`experience-${companyName}-tech-${tech.name}`}
+            />
+          ))}
         </div>
       </div>
     </div>

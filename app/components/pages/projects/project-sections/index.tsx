@@ -1,19 +1,12 @@
 /* eslint-disable prettier/prettier */
+import { ProjectSection } from "@/app/types/projects";
 import Image from "next/image";
 import React from "react";
+type ProjectSectionsProps = {
+  sections: ProjectSection[];
+};
 
-const sections = [
-  {
-    title: "login",
-    image: "/images/print-home.png",
-  },
-  {
-    title: "Home",
-    image: "/images/print-home.png",
-  },
-];
-
-const ProjectSections = () => {
+const ProjectSections = ({ sections }: ProjectSectionsProps) => {
   return (
     <section className="container my-12 md:my-32 flex flex-col gap-8 md:gap-32">
       {sections.map((section, index) => (
@@ -22,7 +15,7 @@ const ProjectSections = () => {
             {section.title}
           </h2>
           <Image
-            src={section.image}
+            src={section.image.url}
             width={1080}
             height={672}
             alt="Imagem do projeto"

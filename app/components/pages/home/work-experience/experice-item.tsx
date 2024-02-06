@@ -32,7 +32,7 @@ const ExperienceItem = ({ experience }: ExperienceItemProps) => {
       <div className="flex flex-col items-center gap-4">
         <div className="rounded-full border border-gray-500 p-0.5">
           <Image
-            src="/images/verticore-logo.png"
+            src={companyLogo.url}
             width={40}
             height={40}
             className="rounded-full object-cover"

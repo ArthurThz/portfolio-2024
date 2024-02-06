@@ -13,7 +13,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
     <div className="rounded-lg h-[436px] flex flex-col bg-gray-800 overflow-hidden border border-gray-800 hover:border-blue-500 opacity-70 hover:opacity-100 transition-all group">
       <div className="w-full h-48 overflow-hidden">
         <Image
-          src="/images/print-home.png"
+          src={project.thumbnail.url}
           width={380}
           height={200}
           alt={`Card do projeto ${project.title}`}

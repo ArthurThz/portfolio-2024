@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import NavItems from "./nav-items";
+import { motion } from "framer-motion";
 
 const Header = () => {
   const NAV_ITEM = [
@@ -17,7 +18,12 @@ const Header = () => {
     },
   ];
   return (
-    <header className="absolute top-0 w-full z-10 h-24 flex items-center justify-center">
+    <motion.header
+      initial={{ top: -100 }}
+      animate={{ top: 0 }}
+      transition={{ duration: 0.5 }}
+      className="absolute top-0 w-full z-10 h-24 flex items-center justify-center"
+    >
       <div className="container flex items-center justify-between">
         <Link href="/">
           <Image
@@ -34,7 +40,7 @@ const Header = () => {
           ))}
         </nav>
       </div>
-    </header>
+    </motion.header>
   );
 };
 

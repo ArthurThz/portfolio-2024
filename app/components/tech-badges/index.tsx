@@ -1,15 +1,20 @@
 /* eslint-disable prettier/prettier */
-import React from "react";
+"use client";
+import React, { ComponentProps } from "react";
+import { motion } from "framer-motion";
 
-type TechBadgeProps = {
+type TechBadgeProps = ComponentProps<typeof motion.span> & {
   name: string;
 };
 
-const TechBadges = ({ name }: TechBadgeProps) => {
+const TechBadges = ({ name, ...props }: TechBadgeProps) => {
   return (
-    <span className="text-emerald-400 bg-emerald-900/80  text-sm py-1 px-3 rounded-lg">
+    <motion.span
+      {...props}
+      className="text-emerald-400 bg-emerald-900/80  text-sm py-1 px-3 rounded-lg"
+    >
       {name}
-    </span>
+    </motion.span>
   );
 };
 

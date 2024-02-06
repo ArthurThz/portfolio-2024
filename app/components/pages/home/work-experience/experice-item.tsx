@@ -1,10 +1,13 @@
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable prettier/prettier */
+"use client";
+import { motion } from "framer-motion";
 import RichText from "@/app/components/rich-text";
 import TechBadges from "@/app/components/tech-badges";
 import { WorkExperience } from "@/app/types/work-experience";
 import Image from "next/image";
 import React from "react";
+import { techBadgeAnimation } from "@/app/lib/animation";
 
 type ExperienceItemProps = {
   experience: WorkExperience;
@@ -19,7 +22,13 @@ const ExperienceItem = ({ experience }: ExperienceItemProps) => {
     technologies,
   } = experience;
   return (
-    <div className="grid grid-cols-[40px,1fr] gap-4 md:gap-10">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 50 }}
+      transition={{ duration: 0.5 }}
+      className="grid grid-cols-[40px,1fr] gap-4 md:gap-10"
+    >
       <div className="flex flex-col items-center gap-4">
         <div className="rounded-full border border-gray-500 p-0.5">
           <Image
@@ -51,15 +60,17 @@ const ExperienceItem = ({ experience }: ExperienceItemProps) => {
           Competências
         </p>
         <div className="flex gap-x-2 gap-y-3 flex-wrap lg:max-w-[350px] mb-8">
-          {technologies.map((tech) => (
+          {technologies.map((tech, i) => (
             <TechBadges
+              {...techBadgeAnimation}
+              transition={{ duration: 0.2, delay: i * 0.1 }}
               name={tech.name}
               key={`experience-${companyName}-tech-${tech.name}`}
             />
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

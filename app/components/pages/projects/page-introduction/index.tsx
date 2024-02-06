@@ -1,8 +1,10 @@
 /* eslint-disable prettier/prettier */
+"use client";
 import Link from "@/app/components/link";
 import SectionTitle from "@/app/components/section-title";
 import React from "react";
 import { HiArrowNarrowLeft } from "react-icons/hi";
+import { motion } from "framer-motion";
 
 const ProjectsIntrodution = () => {
   return (
@@ -12,7 +14,13 @@ const ProjectsIntrodution = () => {
         subtitle="projetos"
         className="text-center items-center [&>h3]:text-4xl"
       />
-      <div className="flex flex-col items-center">
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 100 }}
+        transition={{ duration: 0.6 }}
+        className="flex flex-col items-center"
+      >
         <p className="text-gray-400 text-center max-w-[640px] my-6 text-sm sm:text-base">
           Aqui você poderá ver alguns dos trabalhos que desenvolvi. Navegue à
           vontade e explore os projetos para ver como foram criados, as
@@ -22,7 +30,7 @@ const ProjectsIntrodution = () => {
           <HiArrowNarrowLeft size={20} />
           Voltar para Home
         </Link>
-      </div>
+      </motion.div>
     </section>
   );
 };

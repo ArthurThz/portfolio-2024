@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+
 import ProjectDetails from "@/app/components/pages/projects/project-detail";
 import ProjectSections from "@/app/components/pages/projects/project-sections";
 import { fetchHygraphQuery } from "@/app/lib/fetch-hygraph-query";

@@ -5,6 +5,7 @@ import Link from "next/link";
 import React from "react";
 import NavItems from "./nav-items";
 import { motion } from "framer-motion";
+import { FaReact } from "react-icons/fa";
 
 const Header = () => {
   const NAV_ITEM = [
@@ -26,12 +27,7 @@ const Header = () => {
     >
       <div className="container flex items-center justify-between">
         <Link href="/">
-          <Image
-            width={58}
-            height={49}
-            src="/images/logo.svg"
-            alt="Logo Theodoro.tsx"
-          />
+          <FaReact className="text-blue-500" size={40} />
         </Link>
 
         <nav className="flex items-center  gap-4 sm:gap-10 justify-between">

@@ -21,7 +21,7 @@ const SectionTitle = ({ title, subtitle, className }: SectionTitleProps) => {
       <motion.span
         {...animProps}
         transition={{ duration: 0.5 }}
-        className="font-mono text-sm text-emerald-400"
+        className="font-mono text-sm text-blue-400"
       >{`../${subtitle}`}</motion.span>
       <motion.h3
         {...animProps}

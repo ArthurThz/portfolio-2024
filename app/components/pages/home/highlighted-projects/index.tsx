@@ -26,7 +26,7 @@ const HighlightedProjects = ({ projects }: HighlightedProjectsProps) => {
 
         <p className="flex items-center gap-1.5">
           <span className="text-gray-400">Se interessou?</span>
-          <Link href="/projects" className="inline-flex">
+          <Link href="/projects" className="inline-flex hover:text-blue-500">
             Ver todos
             <HiArrowNarrowRight />
           </Link>

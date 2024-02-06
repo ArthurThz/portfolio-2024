@@ -11,7 +11,7 @@ const TechBadges = ({ name, ...props }: TechBadgeProps) => {
   return (
     <motion.span
       {...props}
-      className="text-emerald-400 bg-emerald-900/80  text-sm py-1 px-3 rounded-lg"
+      className="text-blue-300 bg-blue-800/70  text-sm py-1 px-3 rounded-lg"
     >
       {name}
     </motion.span>

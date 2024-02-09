@@ -44,7 +44,7 @@ const ExperienceItem = ({ experience }: ExperienceItemProps) => {
       <div className="">
         <div className="flex flex-col gap-2 text-sm md:text-base">
           <a
-            className="text-gray-500 hover:text-emerald-500 transition-colors"
+            className="text-gray-500 hover:text-blue-500 transition-colors"
             target="_blank"
             href={companyUrl}
           >

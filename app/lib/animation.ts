@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 export const techBadgeAnimation = {
-    intial:{opacity:0,scale:0},
+    initial:{opacity:0,scale:0},
     whileInView:{opacity:1,scale:1},
     exit:{opacity:0,scale:0}
 }

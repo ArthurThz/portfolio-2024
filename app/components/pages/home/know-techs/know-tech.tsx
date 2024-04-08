@@ -11,7 +11,6 @@ const KnowTech = ({ tech }: KnowTechProps) => {
         <p className="font-medium">{tech.name}</p>
         <CmsIcon icon={tech.iconSvg} />
       </div>
-      <span>1 ano de experiência</span>
     </div>
   );
 };

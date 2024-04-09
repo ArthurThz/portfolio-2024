@@ -29,7 +29,7 @@ const ProjectDetails = ({ project }: ProjectDetailsProps) => {
         }}
       />
       <SectionTitle
-        subtitle="projetos"
+        subtitle="Projetos"
         title={`${project.title}`}
         className="text-center items-center sm:[&>h3]:text-4xl"
       />

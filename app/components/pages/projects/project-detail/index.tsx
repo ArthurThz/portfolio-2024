@@ -30,7 +30,7 @@ const ProjectDetails = ({ project }: ProjectDetailsProps) => {
       />
       <SectionTitle
         subtitle="projetos"
-        title="Consulta Já"
+        title={`${project.title}`}
         className="text-center items-center sm:[&>h3]:text-4xl"
       />
       <motion.div
